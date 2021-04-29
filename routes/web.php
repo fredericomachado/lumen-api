@@ -16,3 +16,10 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->get('/api/teste', ['middleware' => 'auth', function () use ($router) {
+    return $router->app->version();
+}]);
+
+$router->post('/api/login', 'TokenController@login');
